@@ -1,0 +1,16 @@
+name: testes
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  testes:
+    # O template começa vermelho de propósito; os testes só rodam no repositório de quem faz o desafio.
+    if: github.repository != 'Falcao-Tech/school-ia-gate-3-agente-triagem'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync
+      - run: uv run pytest

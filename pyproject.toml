@@ -1,0 +1,26 @@
+[project]
+name = "triagem"
+version = "0.1.0"
+description = "Gate 3 do Noclaf School: agente de triagem de bugs com trace e aprovação humana"
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.28.1",
+    "langchain-core>=1.6.12",
+    "langchain-openai>=1.7.2",
+    "langgraph>=1.2.16",
+    "mcp>=2.3.0",
+    "python-dotenv>=1.2.4",
+]
+
+[project.scripts]
+triagem = "triagem.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.11.25,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = ["pytest>=9.1.1"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
